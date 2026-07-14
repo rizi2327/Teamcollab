@@ -1,0 +1,295 @@
+/* WorkspaceView.css — styles for WorkspaceView.jsx (Feature 4.3) */
+
+/* ── Centered page states (loading / not found) ── */
+.wv-center-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 12px;
+}
+
+.wv-loading-text {
+  color: #999;
+  font-size: 14px;
+}
+
+.wv-not-found-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ── Toast ── */
+.wv-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.wv-toast--error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.wv-toast--success {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.wv-toast-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 6px;
+  font-size: 12px;
+}
+
+/* ── Delete confirmation modal ── */
+.wv-delete-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.wv-delete-modal {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wv-delete-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.wv-delete-desc {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.wv-delete-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.wv-delete-btn {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.wv-delete-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.wv-cancel-btn {
+  background: #f1f1f1;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* ── Page layout ── */
+.wv-page {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.wv-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Top bar ── */
+.wv-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.wv-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wv-back-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.wv-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--wv-icon-bg, #6C63FF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.wv-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.wv-meta {
+  font-size: 12px;
+  color: #888;
+  margin: 2px 0 0;
+}
+
+.wv-online-count {
+  color: #16a34a;
+  font-weight: 500;
+}
+
+.wv-avatars {
+  margin-left: 8px;
+}
+
+.wv-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wv-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f5f5f5;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.wv-toggle-btn--active {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.wv-primary-btn {
+  background: #6C63FF;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* ── Filter bar ── */
+.wv-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.wv-search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 280px;
+}
+
+.wv-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.wv-filter-input {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+.wv-filter-input--search {
+  padding-left: 30px;
+  width: 100%;
+}
+
+.wv-clear-filters {
+  background: none;
+  border: none;
+  color: #6C63FF;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* ── Fetch error ── */
+.wv-fetch-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 13px;
+}
+
+.wv-retry-btn {
+  background: none;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ── Board ── */
+.wv-board {
+  flex: 1;
+  display: flex;
+  gap: 16px;
+  padding: 16px 20px;
+  overflow-x: auto;
+}
+
+.wv-drag-overlay-card {
+  cursor: grabbing;
+}

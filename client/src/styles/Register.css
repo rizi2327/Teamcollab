@@ -1,0 +1,289 @@
+/* ===========================
+   Register.css
+   Styles extracted from Register.jsx
+   =========================== */
+
+.register-page {
+  --text: #1a1a2e;
+  --text-secondary: #555;
+  --border: #ddd;
+  --input-bg: #fff;
+  --card-bg: #fff;
+  --page-bg: #f6f5ff;
+  --accent: #6c63ff;
+  --error: #e24b4a;
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--page-bg);
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+  font-family: "Geist", "DM Sans", sans-serif;
+}
+
+/* ---------- Decorative blobs ---------- */
+.register-blob1 {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #c7c3ff55, transparent 70%);
+  pointer-events: none;
+}
+
+.register-blob2 {
+  position: absolute;
+  bottom: -60px;
+  left: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #a8f0d855, transparent 70%);
+  pointer-events: none;
+}
+
+/* ---------- Card ---------- */
+.register-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 4px 40px rgba(108, 99, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(108, 99, 255, 0.08);
+}
+
+/* ---------- Brand / logo ---------- */
+.register-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.register-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #f0eeff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-brand-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+
+/* ---------- Title / subtitle ---------- */
+.register-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.register-subtitle {
+  font-size: 14px;
+  color: #777;
+  margin: -10px 0 0 0;
+  line-height: 1.5;
+}
+
+/* ---------- Banners ---------- */
+.register-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.register-banner-success {
+  background: #eaf3de;
+  border: 1px solid #c0dd97;
+  color: #3b6d11;
+}
+
+.register-banner-error {
+  background: #fcebeb;
+  border: 1px solid #f7c1c1;
+  color: #a32d2d;
+}
+
+.register-banner-icon {
+  font-size: 16px;
+}
+
+.register-banner-close {
+  margin-left: auto;
+  cursor: pointer;
+  opacity: 0.6;
+  font-size: 12px;
+}
+
+/* ---------- Form ---------- */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.register-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.register-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.register-input {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+
+.register-input:focus {
+  border-color: var(--accent);
+}
+
+.register-input--error {
+  border: 1.5px solid var(--error);
+}
+
+.register-input--error:focus {
+  border-color: var(--error);
+}
+
+.register-error-text {
+  font-size: 12px;
+  color: var(--error);
+}
+
+/* ---------- Password field with show/hide ---------- */
+.register-password-wrap {
+  position: relative;
+}
+
+.register-input--password {
+  padding: 10px 20px 10px 10px;
+}
+
+.register-toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 13px;
+  padding: 0 4px;
+}
+
+/* ---------- Password strength ---------- */
+.register-strength {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.register-strength-bars {
+  display: flex;
+  gap: 4px;
+}
+
+.register-strength-bar {
+  flex: 1;
+  height: 3px;
+  border-radius: 99px;
+  background: var(--border);
+  transition: background 0.2s;
+}
+
+.register-strength-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+/* ---------- Submit button ---------- */
+.register-btn {
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s, transform 0.1s;
+  letter-spacing: 0.1px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.register-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.register-btn-loading-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- Login link ---------- */
+.register-login-link {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.register-login-link a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* ---------- Spinner ---------- */
+.register-spinner {
+  animation: register-spin 0.8s linear infinite;
+}
+
+@keyframes register-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

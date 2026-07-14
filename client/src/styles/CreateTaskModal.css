@@ -1,0 +1,272 @@
+/* CreateTaskModal.css */
+
+@keyframes tc-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes tc-slideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes tc-spin {
+  to { transform: rotate(360deg); }
+}
+
+.tc-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(26, 26, 46, 0.45);
+  backdrop-filter: blur(4px);
+  animation: tc-fadeIn 0.15s ease;
+}
+
+.tc-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 201;
+  width: 92%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 24px 80px rgba(108, 99, 255, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
+  animation: tc-slideUp 0.2s ease;
+  max-height: 88vh;
+  overflow-y: auto;
+}
+
+.tc-header {
+  padding: 20px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.tc-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.tc-subtitle {
+  font-size: 13px;
+  color: #999;
+  margin: 4px 0 0;
+}
+
+.tc-close-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #F5F5FB;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: #888;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tc-body {
+  padding: 18px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tc-field-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tc-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+}
+
+.tc-required {
+  color: #E24B4A;
+}
+
+.tc-optional {
+  color: #bbb;
+  font-weight: 400;
+}
+
+.tc-char-count {
+  font-size: 11px;
+  color: #bbb;
+  font-variant-numeric: tabular-nums;
+}
+
+.tc-char-count.tc-char-count--warning {
+  color: #E24B4A;
+}
+
+.tc-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #E0DFF5;
+  background: #FAFAFE;
+  color: #1a1a2e;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.tc-input:focus {
+  border-color: #6C63FF;
+}
+
+.tc-input.tc-input--error {
+  border-color: #E24B4A;
+}
+
+.tc-textarea {
+  resize: none;
+  line-height: 1.5;
+}
+
+.tc-select {
+  cursor: pointer;
+}
+
+.tc-error-text {
+  font-size: 12px;
+  color: #E24B4A;
+}
+
+.tc-priority-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tc-priority-pill {
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 9px;
+  border: 1.5px solid #E0DFF5;
+  background: #FAFAFE;
+  color: #999;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+
+/* .tc-priority-pill-active { */
+  /* color and border-color/background are set inline per-priority,
+     since they depend on the selected priority's theme color */
+/* } */
+
+.tc-row {
+  display: flex;
+  gap: 12px;
+}
+
+.tc-row > .tc-field {
+  flex: 1;
+}
+
+.tc-assignee-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #FAFAFE;
+  border: 1px solid #F0EEF5;
+}
+
+.tc-assignee-chip-text {
+  font-size: 12px;
+  color: #555;
+}
+
+.tc-error-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #FCEBEB;
+  border: 1px solid #F7C1C1;
+  color: #A32D2D;
+  font-size: 13px;
+}
+
+.tc-footer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.tc-btn-primary {
+  padding: 10px 22px;
+  border-radius: 10px;
+  background: #6C63FF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.tc-btn-primary--loading {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.tc-btn-ghost {
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #F5F5FB;
+  color: #555;
+  border: 1.5px solid #E0DFF5;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tc-tip {
+  font-size: 11px;
+  color: #ccc;
+  text-align: right;
+  margin: -8px 0 0;
+}
+
+.tc-avatar {
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tc-spin {
+  animation: tc-spin 0.7s linear infinite;
+}

@@ -1,0 +1,363 @@
+/* ===========================
+   CreateWorkspaceModal.css
+   Styles extracted from CreateWorkspaceModal.jsx
+   =========================== */
+
+/* ---------- Backdrop ---------- */
+.cwm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(26, 26, 46, 0.45);
+  backdrop-filter: blur(4px);
+  animation: cwm-fadeIn 0.15s ease;
+}
+
+@keyframes cwm-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cwm-slideUp {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ---------- Modal shell ---------- */
+.cwm-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 201;
+  width: 92%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 24px 80px rgba(108, 99, 255, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
+  animation: cwm-slideUp 0.2s ease;
+  overflow: hidden;
+}
+
+/* ---------- Header ---------- */
+.cwm-header {
+  padding: 20px 24px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.cwm-header-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.cwm-header-subtitle {
+  font-size: 13px;
+  color: #999;
+  margin: 4px 0 0;
+}
+
+.cwm-close-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f5f5fb;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cwm-close-btn:hover {
+  background: #ebebf7;
+}
+
+/* ---------- Step indicator ---------- */
+.cwm-steps {
+  padding: 16px 24px 0;
+  display: flex;
+  gap: 6px;
+}
+
+.cwm-step-bar {
+  height: 3px;
+  flex: 1;
+  border-radius: 99px;
+  background: #e0dff5;
+  transition: background 0.25s;
+}
+
+.cwm-step-bar--active {
+  background: #6c63ff;
+}
+
+/* ---------- Body ---------- */
+.cwm-body {
+  padding: 20px 24px 24px;
+}
+
+.cwm-step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cwm-step-content--appearance {
+  gap: 20px;
+}
+
+/* ---------- Field ---------- */
+.cwm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cwm-field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cwm-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+}
+
+.cwm-label-required {
+  color: #e24b4a;
+}
+
+.cwm-label-optional {
+  color: #bbb;
+  font-weight: 400;
+}
+
+.cwm-char-count {
+  font-size: 11px;
+  color: #bbb;
+  font-variant-numeric: tabular-nums;
+}
+
+.cwm-char-count--warning {
+  color: #e24b4a;
+}
+
+.cwm-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #e0dff5;
+  background: #fafafe;
+  color: #1a1a2e;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.cwm-input:focus {
+  border-color: #6c63ff;
+}
+
+.cwm-input--error {
+  border-color: #e24b4a;
+}
+
+.cwm-input--error:focus {
+  border-color: #e24b4a;
+}
+
+.cwm-textarea {
+  resize: none;
+  line-height: 1.5;
+}
+
+.cwm-field-error {
+  font-size: 12px;
+  color: #e24b4a;
+}
+
+/* ---------- Preview card ---------- */
+.cwm-preview-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  /* background and border colors set inline via --preview-color (dynamic) */
+}
+
+.cwm-preview-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  /* background color set inline via --preview-color (dynamic) */
+}
+
+.cwm-preview-text {
+  min-width: 0;
+}
+
+.cwm-preview-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cwm-preview-desc {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Icon picker ---------- */
+.cwm-icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cwm-icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1.5px solid #e0dff5;
+  background: #fafafe;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.1s, background 0.1s;
+}
+
+.cwm-icon-btn--selected {
+  border: 2px solid #6c63ff;
+  background: #f0eeff;
+}
+
+/* ---------- Color picker ---------- */
+.cwm-color-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cwm-color-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  outline: none;
+  outline-offset: 2px;
+  transition: border 0.1s, outline 0.1s;
+  /* background color set inline via style (dynamic per swatch) */
+}
+
+.cwm-color-btn--selected {
+  border: 3px solid #1a1a2e;
+  /* outline color set inline via style (dynamic per swatch) */
+}
+
+/* ---------- Error banner ---------- */
+.cwm-error-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fcebeb;
+  border: 1px solid #f7c1c1;
+  color: #a32d2d;
+  font-size: 13px;
+}
+
+/* ---------- Footer buttons ---------- */
+.cwm-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+  justify-content: flex-end;
+}
+
+.cwm-btn-primary {
+  padding: 10px 22px;
+  border-radius: 10px;
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: opacity 0.15s;
+}
+
+.cwm-btn-primary:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.cwm-btn-ghost {
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #f5f5fb;
+  color: #555;
+  border: 1.5px solid #e0dff5;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.cwm-btn-ghost:hover {
+  background: #ebebf7;
+}
+
+/* ---------- Spinner ---------- */
+.cwm-spinner {
+  animation: cwm-spin 0.7s linear infinite;
+}
+
+@keyframes cwm-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

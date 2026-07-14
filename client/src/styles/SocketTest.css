@@ -1,0 +1,191 @@
+/* src/pages/SocketTest.css
+   Feature 4.1 — styles for the dev-only Socket.io test page.
+   Status dot color and log-line color are data-driven (depend on
+   connection status / event type), so they're passed as CSS variables.
+   The Join button's disabled look uses the native :disabled selector
+   instead of a ternary style object.
+*/
+
+.st-page {
+  min-height: 100vh;
+  font-family: 'DM Sans', system-ui;
+  background: #F6F5FF;
+  padding: 2rem;
+}
+
+.st-container {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.st-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 24px;
+  border: 1px solid #E0DFF5;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────── */
+.st-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 4px;
+}
+
+.st-subtitle {
+  font-size: 13px;
+  color: #999;
+  margin: 0;
+}
+
+/* ── Section label (shared by status / room / log cards) ────────────── */
+.st-section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #bbb;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 12px;
+}
+
+/* ── Status card ──────────────────────────────────────────────────────── */
+.st-status-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.st-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--status-color, #bbb);
+}
+
+.st-status-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+  text-transform: capitalize;
+}
+
+.st-status-error {
+  font-size: 12px;
+  color: #E24B4A;
+}
+
+.st-user-info {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.st-user-info__text {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}
+
+/* ── Room controls ────────────────────────────────────────────────────── */
+.st-room-row {
+  display: flex;
+  gap: 8px;
+}
+
+.st-room-input {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 9px;
+  border: 1.5px solid #E0DFF5;
+  font-size: 13px;
+  outline: none;
+  font-family: inherit;
+}
+
+.st-join-btn {
+  padding: 9px 16px;
+  border-radius: 9px;
+  background: #6C63FF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.st-join-btn:disabled {
+  background: #E0DFF5;
+  cursor: not-allowed;
+}
+
+.st-leave-btn {
+  padding: 9px 16px;
+  border-radius: 9px;
+  background: #F5F5FB;
+  color: #555;
+  border: 1.5px solid #E0DFF5;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* ── Event log ────────────────────────────────────────────────────────── */
+.st-log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.st-log-header .st-section-label {
+  margin: 0;
+}
+
+.st-log-clear-btn {
+  font-size: 11px;
+  color: #bbb;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.st-log-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.st-log-empty {
+  font-size: 13px;
+  color: #bbb;
+  font-style: italic;
+}
+
+.st-log-entry {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.st-log-entry__ts {
+  color: #bbb;
+  flex-shrink: 0;
+  font-family: monospace;
+}
+
+.st-log-entry__msg {
+  color: var(--log-color, #555);
+}
+
+/* ── Footer note ──────────────────────────────────────────────────────── */
+.st-footer-note {
+  font-size: 11px;
+  color: #ccc;
+  text-align: center;
+}

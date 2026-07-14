@@ -1,0 +1,130 @@
+/* src/components/KanbanColumn.css
+   Feature 3.4 — styles for KanbanColumn and its SkeletonCard.
+   Column dot/label/count colors come from COLUMN_CONFIG (per status),
+   so they're passed as CSS variables. The `isOver` drop-target state
+   is handled via a `.kanban-column--over` modifier class instead of
+   inline ternaries.
+*/
+
+@keyframes tc-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.5; }
+}
+
+/* ── Skeleton card (loading state) ───────────────────────────────────── */
+.skeleton-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #E0DFF5;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: tc-pulse 1.4s infinite;
+}
+
+.skeleton-card__line {
+  height: 12px;
+  width: 80%;
+  border-radius: 6px;
+  background: #F0EEF5;
+}
+
+.skeleton-card__line--short {
+  height: 10px;
+  width: 50%;
+  background: #F5F3FA;
+}
+
+/* ── Column shell ─────────────────────────────────────────────────────── */
+.kanban-column {
+  flex: 1;
+  min-width: 280px;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  background: #FAFAFE;
+  border-radius: 16px;
+  border: 1px solid #F0EEF5;
+  max-height: calc(100vh - 200px);
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.kanban-column--over {
+  background: #F0EEFF;
+  border: 1.5px dashed #6C63FF;
+}
+
+/* ── Column header ────────────────────────────────────────────────────── */
+.kanban-column__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 14px 10px;
+}
+
+.kanban-column__header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kanban-column__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot-color, #bbb);
+}
+
+.kanban-column__label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.kanban-column__count {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--count-color, #888);
+  background: var(--count-bg, #F5F5FB);
+  padding: 1px 8px;
+  border-radius: 20px;
+}
+
+.kanban-column__add-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: #fff;
+  border: 1px solid #E0DFF5;
+  cursor: pointer;
+  font-size: 14px;
+  color: #6C63FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Card list ────────────────────────────────────────────────────────── */
+.kanban-column__list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 60px;
+}
+
+.kanban-column__empty {
+  text-align: center;
+  padding: 2rem 1rem;
+  border: 1.5px dashed #E0DFF5;
+  border-radius: 12px;
+}
+
+.kanban-column__empty-text {
+  font-size: 12px;
+  color: #bbb;
+  margin: 0;
+}

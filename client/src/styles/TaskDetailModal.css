@@ -1,0 +1,418 @@
+/* TaskDetailModal.css */
+
+@keyframes tdm-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes tdm-slideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes tdm-spin {
+  to { transform: rotate(360deg); }
+}
+
+.tdm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(26, 26, 46, 0.45);
+  backdrop-filter: blur(4px);
+  animation: tdm-fadeIn 0.15s ease;
+}
+
+.tdm-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 201;
+  width: 92%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 24px 80px rgba(108, 99, 255, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
+  animation: tdm-slideUp 0.2s ease;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tdm-spin {
+  animation: tdm-spin 0.7s linear infinite;
+}
+
+/* ── Deleted flash state ── */
+
+.tdm-deleted-flash {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.tdm-deleted-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.tdm-deleted-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.tdm-deleted-subtitle {
+  font-size: 13px;
+  color: #999;
+  margin-top: 4px;
+}
+
+/* ── Header ── */
+
+.tdm-header {
+  padding: 20px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.tdm-title-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.tdm-title-input {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  line-height: 1.35;
+  padding: 0;
+  font-family: inherit;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.tdm-title-input:focus {
+  border-bottom-color: #6C63FF;
+}
+
+.tdm-close-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #F5F5FB;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: #888;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Body ── */
+
+.tdm-body {
+  padding: 16px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-y: auto;
+}
+
+.tdm-field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tdm-field-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #bbb;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Status toggle / priority pills ── */
+
+.tdm-pill-group {
+  display: flex;
+  gap: 6px;
+}
+
+.tdm-pill {
+  flex: 1;
+  padding: 7px 0;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #FAFAFE;
+  color: #bbb;
+  border: 1.5px solid #E0DFF5;
+  transition: all 0.12s;
+}
+
+/* Active pill color/border/background are set inline since they
+   depend on which status or priority option is selected. */
+
+/* ── Textarea ── */
+
+.tdm-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  resize: vertical;
+  border: 1.5px solid #E0DFF5;
+  background: #FAFAFE;
+  color: #1a1a2e;
+  font-size: 13.5px;
+  outline: none;
+  line-height: 1.55;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.tdm-textarea:focus {
+  border-color: #6C63FF;
+}
+
+/* ── Assignee / due date grid ── */
+
+.tdm-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.tdm-select {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #E0DFF5;
+  background: #FAFAFE;
+  color: #1a1a2e;
+  font-size: 13px;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.tdm-assignee-preview {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 6px;
+}
+
+.tdm-assignee-preview-name {
+  font-size: 12px;
+  color: #555;
+}
+
+.tdm-due-date-input {
+  color: #1a1a2e;
+  font-weight: 400;
+}
+
+.tdm-due-date-input--overdue {
+  color: #E24B4A;
+  font-weight: 600;
+}
+
+/* ── Metadata ── */
+
+.tdm-meta-row {
+  display: flex;
+  gap: 16px;
+  padding-top: 4px;
+  border-top: 1px solid #F0EEF5;
+}
+
+.tdm-meta-col {
+  flex: 1;
+}
+
+.tdm-meta-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #bbb;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tdm-meta-value {
+  font-size: 12px;
+  color: #555;
+  font-weight: 500;
+}
+
+.tdm-meta-value-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.tdm-meta-date {
+  margin: 4px 0 0;
+}
+
+/* ── Sub-panels (breakdown, attachments) ── */
+
+.tdm-subpanel {
+  border-top: 1px solid #F0EEF5;
+  padding-top: 14px;
+}
+
+/* ── Save / discard feedback ── */
+
+.tdm-banner-error {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #FCEBEB;
+  border: 1px solid #F7C1C1;
+  color: #A32D2D;
+  font-size: 13px;
+}
+
+.tdm-banner-success {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #EAF3DE;
+  border: 1px solid #C0DD97;
+  color: #3B6D11;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.tdm-save-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.tdm-primary-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #6C63FF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.tdm-primary-btn--loading {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.tdm-ghost-btn {
+  padding: 8px 16px;
+  border-radius: 9px;
+  background: #F5F5FB;
+  color: #555;
+  border: 1.5px solid #E0DFF5;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ── Delete section ── */
+
+.tdm-delete-section {
+  border-top: 1px solid #F0EEF5;
+  padding-top: 16px;
+  margin-top: 4px;
+}
+
+.tdm-delete-btn {
+  padding: 8px 14px;
+  border-radius: 9px;
+  background: transparent;
+  color: #bbb;
+  border: 1px solid #E0DFF5;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tdm-delete-confirm-box {
+  padding: 14px;
+  border-radius: 12px;
+  background: #FCEBEB;
+  border: 1px solid #F7C1C1;
+}
+
+.tdm-delete-confirm-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #A32D2D;
+  margin: 0 0 3px;
+}
+
+.tdm-delete-confirm-subtitle {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+.tdm-delete-confirm-error {
+  font-size: 12px;
+  color: #A32D2D;
+  margin: 6px 0 0;
+  font-weight: 500;
+}
+
+.tdm-delete-confirm-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tdm-delete-confirm-btn {
+  padding: 8px 16px;
+  border-radius: 9px;
+  background: #E24B4A;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tdm-delete-confirm-btn--loading {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+/* ── Avatar ── */
+
+.tdm-avatar {
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}

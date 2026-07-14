@@ -1,0 +1,113 @@
+/* src/components/MemberList.css
+   Extracted styles for MemberList.jsx
+*/
+
+/* ── Avatar ────────────────────────────────────────────────────────────── */
+.ml-avatar {
+  width: var(--avatar-size, 30px);
+  height: var(--avatar-size, 30px);
+  border-radius: 50%;
+  background: var(--avatar-color, #6C63FF);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--avatar-font-size, 12px);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Compact mode ──────────────────────────────────────────────────────── */
+.ml-compact-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ml-compact-item {
+  position: relative;
+}
+
+.ml-compact-overflow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #F0EEF5;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* ── Full mode ─────────────────────────────────────────────────────────── */
+.ml-full-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ml-full-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: transparent;
+  transition: background 0.2s;
+}
+
+.ml-full-row.online {
+  background: #F8FFF5;
+}
+
+.ml-full-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ml-full-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.ml-full-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ml-full-role {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.ml-online-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: #3B6D11;
+  background: #EAF3DE;
+  padding: 2px 7px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* ── Online dot positioning (passed to OnlineDot) ─────────────────────── */
+.ml-dot-compact {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: 1.5px solid #fff;
+}
+
+.ml-dot-full {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  border: 2px solid #fff;
+}

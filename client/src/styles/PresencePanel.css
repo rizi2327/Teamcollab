@@ -1,0 +1,78 @@
+/* src/components/PresencePanel.css
+   Extracted styles for PresencePanel.jsx
+*/
+
+/* ── Panel shell ───────────────────────────────────────────────────────── */
+.pp-panel {
+  width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-left: 1px solid #E0DFF5;
+  height: calc(100vh - 58px);
+  position: sticky;
+  top: 58px;
+}
+
+/* ── Header ────────────────────────────────────────────────────────────── */
+.pp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid #F0EEF5;
+  flex-shrink: 0;
+}
+
+.pp-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pp-header-icon {
+  font-size: 15px;
+}
+
+.pp-header-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.pp-online-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pp-online-count-text {
+  font-size: 11px;
+  color: #3B6D11;
+  font-weight: 600;
+}
+
+.pp-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #bbb;
+  font-size: 16px;
+}
+
+/* ── Member list area ──────────────────────────────────────────────────── */
+.pp-list-wrap {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 8px;
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+.pp-footer {
+  padding: 10px 16px;
+  border-top: 1px solid #F0EEF5;
+  flex-shrink: 0;
+  font-size: 12px;
+  color: #aaa;
+}

@@ -1,0 +1,162 @@
+/* src/components/TaskCard.css */
+
+.task-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #E0DFF5;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  cursor: grab;
+  position: relative;
+  box-shadow: none;
+}
+
+.task-card--hovered {
+  border: 1px solid #D4D0FF;
+  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.10);
+}
+
+.task-card--dragging {
+  cursor: grabbing;
+  opacity: 0.4;
+  box-shadow: 0 8px 24px rgba(108, 99, 255, 0.18);
+}
+
+/* Trash / delete button */
+.task-card__delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: #FCEBEB;
+  border: 1px solid #F7C1C1;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E24B4A;
+  flex-shrink: 0;
+  pointer-events: all;
+  z-index: 10;
+}
+
+/* Title */
+.task-card__title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  pointer-events: none;
+  padding-right: 0;
+}
+
+.task-card__title--with-delete {
+  padding-right: 24px;
+}
+
+.task-card__ai-icon {
+  margin-right: 5px;
+}
+
+/* Description preview */
+.task-card__description {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Bottom row */
+.task-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+  pointer-events: none;
+}
+
+.task-card__footer-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.task-card__due-date {
+  font-size: 10.5px;
+  color: #bbb;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.task-card__due-date--overdue {
+  color: #E24B4A;
+  font-weight: 600;
+}
+
+.task-card__attachments {
+  font-size: 10.5px;
+  color: #bbb;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.task-card__unassigned {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px dashed #E0DFF5;
+  flex-shrink: 0;
+}
+
+/* Priority tag */
+.priority-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.priority-tag--low {
+  color: #3B6D11;
+  background: #EAF3DE;
+}
+
+.priority-tag--medium {
+  color: #854F0B;
+  background: #FFF4E0;
+}
+
+.priority-tag--high {
+  color: #A32D2D;
+  background: #FCEBEB;
+}
+
+/* Avatar */
+.avatar {
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}

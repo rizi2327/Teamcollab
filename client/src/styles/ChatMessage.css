@@ -1,0 +1,155 @@
+/* src/components/ChatMessage.css
+   Extracted styles for ChatMessage.jsx
+*/
+
+/* ── Avatar ────────────────────────────────────────────────────────────── */
+.cm-avatar {
+  width: var(--avatar-size, 28px);
+  height: var(--avatar-size, 28px);
+  border-radius: 50%;
+  background: var(--avatar-color, #6C63FF);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--avatar-font-size, 11.2px);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Date divider ──────────────────────────────────────────────────────── */
+.cm-date-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 6px;
+}
+
+.cm-date-divider-line {
+  flex: 1;
+  height: 1px;
+  background: #F0EEF5;
+}
+
+.cm-date-divider-label {
+  font-size: 11px;
+  color: #bbb;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ── Message row ───────────────────────────────────────────────────────── */
+.cm-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.cm-row.own {
+  flex-direction: row-reverse;
+}
+
+.cm-row.theirs {
+  flex-direction: row;
+}
+
+/* ── Avatar slot (left placeholder for others) ────────────────────────── */
+.cm-avatar-slot {
+  width: 28px;
+  flex-shrink: 0;
+}
+
+/* ── Avatar + online dot wrapper ── NEW 4.3 ── */
+.cm-avatar-wrap {
+  position: relative;
+}
+
+.cm-avatar-dot {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  border: 2px solid #fff;
+}
+
+/* ── Bubble column ─────────────────────────────────────────────────────── */
+.cm-bubble-col {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cm-bubble-col.own {
+  align-items: flex-end;
+}
+
+.cm-bubble-col.theirs {
+  align-items: flex-start;
+}
+
+/* ── Sender name row ── updated 4.3: now holds name + online label ── */
+.cm-sender-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 3px;
+  margin-left: 2px;
+}
+
+.cm-sender-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+}
+
+.cm-sender-online-label {
+  font-size: 10px;
+  color: #5FA021;
+  font-weight: 600;
+}
+
+/* ── Bubble ────────────────────────────────────────────────────────────── */
+.cm-bubble {
+  padding: 9px 13px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  word-break: break-word;
+  transition: opacity 0.2s;
+}
+
+.cm-bubble.optimistic {
+  opacity: 0.65;
+}
+
+.cm-bubble.own {
+  border-radius: 16px 16px 4px 16px;
+  background: #6C63FF;
+  border: none;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.20);
+}
+
+.cm-bubble.theirs {
+  border-radius: 16px 16px 16px 4px;
+  background: #fff;
+  border: 1px solid #E0DFF5;
+  color: #1a1a2e;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* ── Timestamp ─────────────────────────────────────────────────────────── */
+.cm-timestamp {
+  font-size: 10.5px;
+  color: #bbb;
+  margin-top: 3px;
+}
+
+.cm-timestamp.own {
+  margin-left: 0;
+  margin-right: 2px;
+}
+
+.cm-timestamp.theirs {
+  margin-left: 2px;
+  margin-right: 0;
+}
