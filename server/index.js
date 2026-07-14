@@ -20,7 +20,7 @@ const notificationRoutes = require('./routes/notificationRoutes');
 const analyticsRoutes    = require('./routes/analyticsRoutes');
 const aiRoutes            = require('./routes/aiRoutes');
 
-// const { generalLimiter } = require('./middleware/rateLimiters');   // ← NEW 9.1
+const { generalLimiter } = require('./middleware/rateLimiters');   // ← NEW 9.1
 const { initSocket } = require('./socket/socketServer');
 
 const app = express();
@@ -31,7 +31,7 @@ app.use(express.json());
 // Global rate limit — 100 requests / 15 min per IP across the whole API.
 // Applied after body parsing (cheap) but before any route logic runs, and
 // BEFORE static file serving too, so /uploads can't be used to dodge it.
-// app.use('/api', generalLimiter);                                    // ← NEW 9.1
+app.use('/api', generalLimiter);                                    // ← NEW 9.1
 
 // Serve uploaded files statically — e.g. /uploads/tasks/<taskId>/<filename>
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
