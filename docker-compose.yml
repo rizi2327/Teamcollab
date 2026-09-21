@@ -1,0 +1,61 @@
+# docker-compose.yml
+# Runs the whole stack — MongoDB, the Express/Socket.io API, and the built
+# React SPA behind nginx — with a single command:
+#
+#   docker compose up --build
+#
+# Then visit http://localhost:8080 (frontend) — it talks to the API at
+# http://localhost:5000, which talks to the mongo service by its service
+# name (Docker's internal DNS resolves "mongo" to the right container).
+
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      PORT: 5000
+      MONGO_URI: mongodb://mongo:27017/teamcollab
+      CLIENT_URL: http://localhost:8080
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in your .env file}
+      JWT_EXPIRES_IN: 7d
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+    volumes:
+      # Persist uploaded task attachments (Feature 7.1) across rebuilds
+      - server_uploads:/app/uploads
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://localhost:5000/api
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      - server
+
+volumes:
+  mongo_data:
+  server_uploads:

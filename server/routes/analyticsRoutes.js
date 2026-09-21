@@ -4,7 +4,7 @@
 const express = require('express');
 const router  = express.Router();
 const { protect } = require('../middleware/authMiddleware');
-// const { validateObjectIdParam } = require('../middleware/validators');
+const { validateObjectIdParam } = require('../middleware/validators');
 const {
   getOverview,
   getStatusBreakdown,
@@ -14,7 +14,7 @@ const {
 } = require('../controllers/analyticsController');
 
 router.use(protect);
-// router.use(validateObjectIdParam('workspaceId'));
+router.use(validateObjectIdParam('workspaceId'));
 
 router.get('/:workspaceId/overview',           getOverview);
 router.get('/:workspaceId/status-breakdown',   getStatusBreakdown);
